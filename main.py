@@ -34,13 +34,13 @@ def in_board(posizione):
            posizione[1] in range(1, 9)
 
 
-def get_mossa():
+def get_mossa(message):
     """
     acquisisce una mossa dallo standard input o termina il programma
     La mossa deve essere fornita nel formato:
-        
+
         posizione_di_partenza posizione_di_destinazione
-        
+
     dove una posizione è una coppia formata da una lettera
     in ['A', 'H'] e da una cifra in [1, 8]
     le due posizioni devono essere separate da un solo spazio
@@ -57,7 +57,8 @@ def get_mossa():
 
     """
     while True:
-        mossa = input("Dammi la mossa: ")
+        #TO-DO Insert a check user just move our pieces
+        mossa = input(message)
         if not len(mossa) == 5:  # l'input non è una mossa
             exit(0)              # termina il programma
         partenza = [mossa[0].upper(), int(mossa[1])]
@@ -102,10 +103,17 @@ if __name__ == "__main__":
     print()
 
     # inizia il gioco
+    index = 0
     while True:
         while True:
+            message = ""
+            if index % 2 == 0:
+                message = "Gioca il giocatore 1: "
+            else:
+                message = "Gioca il giocatore 2: "
+            index = index + 1
             # acquisisce mossa da fare
-            (partenza, destinazione) = get_mossa()
+            (partenza, destinazione) = get_mossa(message)
             # recupera il pezzo da muovere
             pezzo = scacchiera.get_pezzo(partenza)
             # muovi il pezzo sulla scacchiera
