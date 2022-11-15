@@ -57,7 +57,7 @@ def get_mossa(message):
 
     """
     while True:
-        #TO-DO Insert a check user just move our pieces
+        #TODO Insert a check user just move our pieces
         mossa = input(message)
         if not len(mossa) == 5:  # l'input non è una mossa
             exit(0)              # termina il programma
