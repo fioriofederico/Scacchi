@@ -16,7 +16,7 @@ class Regina(Pezzo):
 
     def __init__(self, colore, posizione=None):
         super().__init__(colore, posizione, 'Regina')
-        self.graphic_rep = '\u2656' if self.colore == 'W' else '\u265c'
+        self.graphic_rep = '\u2655' if self.colore == 'W' else '\u265b'
 
     def verifica_mossa(self, destinazione):
         """

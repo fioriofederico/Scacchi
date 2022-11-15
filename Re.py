@@ -16,7 +16,7 @@ class Re(Pezzo):
 
     def __init__(self, colore, posizione=None):
         super().__init__(colore, posizione, 'Re')
-        self.graphic_rep = '\u2656' if self.colore == 'W' else '\u265c'
+        self.graphic_rep = '\u2654' if self.colore == 'W' else '\u265a'
 
     def verifica_mossa(self, destinazione):
         """

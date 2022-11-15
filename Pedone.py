@@ -9,18 +9,18 @@ Created on Thu Nov 14 10:10:02 2022
 from Pezzo import Pezzo
 
 
-class Alfiere(Pezzo):
+class Pedone(Pezzo):
     """
-    implementa la Alfiere
+    implementa la Pedone
     """
 
     def __init__(self, colore, posizione=None):
-        super().__init__(colore, posizione, 'Alfiere')
-        self.graphic_rep = '\u2657' if self.colore == 'W' else '\u265d'
+        super().__init__(colore, posizione, 'Pedone')
+        self.graphic_rep = '\u2659' if self.colore == 'W' else '\u265d'
 
     def verifica_mossa(self, destinazione):
         """
-        verifica se la Alfiere può essere mosso alla destinazione
+        verifica se la Pedone può essere mosso alla destinazione
 
         Parameters
         ----------
@@ -55,8 +55,8 @@ class Alfiere(Pezzo):
                         return False
                 return True
             else:
-                print(f'La mossa {self.posizione[0]}{self.posizione[1]}, {destinazione[0]}{destinazione[1]} non è legale per la Alfiere')
+                print(f'La mossa {self.posizione[0]}{self.posizione[1]}, {destinazione[0]}{destinazione[1]} non è legale per la Pedone')
                 return False
         else:
-            print(f'La mossa {self.posizione[0]}{self.posizione[1]}, {destinazione[0]}{destinazione[1]} non è legale per la Alfiere')
+            print(f'La mossa {self.posizione[0]}{self.posizione[1]}, {destinazione[0]}{destinazione[1]} non è legale per la Pedone')
             return False

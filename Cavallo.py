@@ -16,7 +16,7 @@ class Cavallo(Pezzo):
 
     def __init__(self, colore, posizione=None):
         super().__init__(colore, posizione, 'Cavallo')
-        self.graphic_rep = '\u2656' if self.colore == 'W' else '\u265c'
+        self.graphic_rep = '\u2658' if self.colore == 'W' else '\u265e'
 
     def verifica_mossa(self, destinazione):
         """
