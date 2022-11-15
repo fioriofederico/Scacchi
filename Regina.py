@@ -9,7 +9,7 @@ Created on Thu Nov 14 10:10:02 2022
 from Pezzo import Pezzo
 
 
-class Torre(Pezzo):
+class Regina(Pezzo):
     """
     implementa la Regina
     """
