@@ -57,10 +57,10 @@ def get_mossa(message):
 
     """
     while True:
-        #TODO Insert a check user just move our pieces
+        # TODO Insert a check user just move our pieces
         mossa = input(message)
         if not len(mossa) == 5:  # l'input non è una mossa
-            exit(0)              # termina il programma
+            exit(0)  # termina il programma
         partenza = [mossa[0].upper(), int(mossa[1])]
         destinazione = [mossa[3].upper(), int(mossa[4])]
         if in_board(partenza) and in_board(destinazione):
@@ -74,13 +74,13 @@ if __name__ == "__main__":
     scacchiera = Scacchiera()
     # posizione 4 pezzi bianchi nelle prime 4 righe della colonna A
     scacchiera.metti(Torre('W'), ['A', 1])
-    scacchiera.metti(Cavallo('W'),['A', 2])
-    scacchiera.metti(Alfiere('W'), ['A',3])
-    scacchiera.metti(Re('W'), ['A',4])
-    scacchiera.metti(Regina('W'),['A',5])
-    scacchiera.metti(Alfiere('W'),['A',6])
-    scacchiera.metti(Cavallo('W'),['A',7])
-    scacchiera.metti(Torre('W'),['A',8])
+    scacchiera.metti(Cavallo('W'), ['A', 2])
+    scacchiera.metti(Alfiere('W'), ['A', 3])
+    scacchiera.metti(Re('W'), ['A', 4])
+    scacchiera.metti(Regina('W'), ['A', 5])
+    scacchiera.metti(Alfiere('W'), ['A', 6])
+    scacchiera.metti(Cavallo('W'), ['A', 7])
+    scacchiera.metti(Torre('W'), ['A', 8])
 
     for i in range(1, 9):
         p = Pedone('W')
@@ -111,7 +111,7 @@ if __name__ == "__main__":
                 message = "Gioca il giocatore 1: "
             else:
                 message = "Gioca il giocatore 2: "
-            index = index + 1
+            index += 1
             # acquisisce mossa da fare
             (partenza, destinazione) = get_mossa(message)
             # recupera il pezzo da muovere
@@ -127,4 +127,3 @@ if __name__ == "__main__":
 
         scacchiera.visualizza()
         print()
-
