@@ -48,6 +48,12 @@ class Pezzo:
         """
         return self.graphic_rep
 
+    def get_colore(self):
+        """
+        Ritorna il colore del pezzo
+        """
+        return self.colore
+
     def verifica_mossa(self, destinazione):
         """
         verifica se il pezzo può essere mosso alla destinazione
