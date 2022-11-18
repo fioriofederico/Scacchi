@@ -42,10 +42,10 @@ class Regina(Pezzo):
                 first = self.posizione[1]+1 if self.posizione[1]+1 < destinazione[1] else destinazione[1]+1  # prima riga da esaminare
                 last = destinazione[1] if self.posizione[1]+1 < destinazione[1] else self.posizione[1]  # ultma riga da esaminare
                 for riga in range(first, last):
-                    if not self.scacchiera.get_pezzo([destinazione[0], riga]) == None & self.scacchiera.get_pezzo([destinazione[0], riga]).colore != self.colore:  # la casella è occupata
+                    if not self.scacchiera.get_pezzo([destinazione[0], riga]) == None and self.scacchiera.get_pezzo([destinazione[0], riga]).colore != self.colore:  # la casella è occupata
                         print(f"La mossa è legale perché è presente un pezzo di colore opposto: ({self.scacchiera.get_pezzo([destinazione[0], riga]).nome}) nella casella {destinazione[0]}{riga}")
                         return True
-                    elif not self.scacchiera.get_pezzo([destinazione[0], riga]) == None & self.scacchiera.get_pezzo([destinazione[0], riga]).colore == self.colore:
+                    elif not self.scacchiera.get_pezzo([destinazione[0], riga]) == None and self.scacchiera.get_pezzo([destinazione[0], riga]).colore == self.colore:
                         print(f"La mossa non è legale perché è presente un pezzo dello stesso colore: ({self.scacchiera.get_pezzo([destinazione[0], riga]).nome}) nella casella {destinazione[0]}{riga}")
                         return False
                 return True
