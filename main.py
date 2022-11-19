@@ -108,22 +108,22 @@ if __name__ == "__main__":
         while True:
             message = ""
             if index % 2 == 0:
-                message = "Gioca il giocatore 1: "
+                message = "Gioca il giocatore 1 (Bianchi): "
             else:
-                message = "Gioca il giocatore 2: "
-            index += 1
+                message = "Gioca il giocatore 2 (Neri): "
             # acquisisce mossa da fare
             (partenza, destinazione) = get_mossa(message)
             # recupera il pezzo da muovere
             pezzo = scacchiera.get_pezzo(partenza)
             # muovi il pezzo sulla scacchiera
-            if pezzo.verifica_mossa(destinazione):  # la mossa è legale
+            if pezzo.verifica_player(partenza, index) and pezzo.verifica_mossa(destinazione):  # la mossa è legale
                 break
+
+        index += 1
         # esegui mossa sulla scacchiera
         if not scacchiera.get_pezzo(destinazione) is None:
             scacchiera.togli(destinazione)
         scacchiera.togli(partenza)
         scacchiera.metti(pezzo, destinazione)
-
         scacchiera.visualizza()
         print()

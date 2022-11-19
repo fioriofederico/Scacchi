@@ -6,10 +6,12 @@ Created on Thu Nov 10 10:10:02 2022
 @author: iannello
 """
 
+
 class Pezzo:
     """
     modella il generico pezzo del gioco
     """
+
     def __init__(self, colore, posizione=None, nome=None):
         """
         costruttore
@@ -75,7 +77,36 @@ class Pezzo:
                 print(f'La casella {destinazione[0]}{destinazione[1]} è occupata da un pezzo dello stesso colore')
                 return False
         return True  # per ora la mossa è sempre legale
-    
+
+    def verifica_player(self, partenza, player):
+        """
+        verifica se il pezzo è del giocatore in turno
+
+        Parameters
+        ----------
+        pezzo : pezzo che si vuole muovere
+
+        player : player in turno
+
+        Returns
+        -------
+        bool
+        indica se il giocatore muove un pezzo legale o no
+        """
+        player_in_play = player % 2
+        if player_in_play == 0:
+            id_player = 1
+        else:
+            id_player = 2
+        pezzo = self.scacchiera.get_pezzo(partenza)
+        if self.colore == 'W' and player_in_play == 1:
+            print(f'Il giocatore {id_player} ha mosso un pezzo bianco')
+            return False
+        if self.colore == 'B' and player_in_play == 0:
+            print(f'Il giocatore {id_player} ha mosso un pezzo nero')
+            return False
+        return True  # per ora la mossa è sempre legale
+
     def metti(self, posizione, scacchiera=None):
         """
         mette il pezzo sulla scacchiera nella posizione indicata
@@ -99,7 +130,7 @@ class Pezzo:
         if self.scacchiera == None:  # se il pezzo non è associato a una scacchiera
             raise ValueError(f'Il {self.nome} {self.colore} non è associato ad alcuna scacchiera')
         self.posizione = posizione
-    
+
     def togli(self):
         """
         toglie il pezzo dalla scacchiera
