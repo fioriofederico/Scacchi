@@ -57,7 +57,6 @@ def get_mossa(message):
 
     """
     while True:
-        # TODO Insert a check user just move our pieces
         mossa = input(message)
         if not len(mossa) == 5:  # l'input non è una mossa
             exit(0)  # termina il programma
@@ -116,7 +115,9 @@ if __name__ == "__main__":
             # recupera il pezzo da muovere
             pezzo = scacchiera.get_pezzo(partenza)
             # muovi il pezzo sulla scacchiera
-            if pezzo.verifica_player(partenza, index) and pezzo.verifica_mossa(destinazione):  # la mossa è legale
+            if pezzo is None:  # non esiste un pezzo sulla casella che si vuole muovere
+                print(f'Sulla casella {partenza[0]}{partenza[1]} non è presente alcun pezzo')
+            elif pezzo.verifica_player(index) and pezzo.verifica_mossa(destinazione):  # la mossa è legale
                 break
 
         index += 1

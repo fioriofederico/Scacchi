@@ -78,14 +78,12 @@ class Pezzo:
                 return False
         return True  # per ora la mossa è sempre legale
 
-    def verifica_player(self, partenza, player):
+    def verifica_player(self, player):
         """
         verifica se il pezzo è del giocatore in turno
 
         Parameters
         ----------
-        pezzo : pezzo che si vuole muovere
-
         player : player in turno
 
         Returns
@@ -98,12 +96,11 @@ class Pezzo:
             id_player = 1
         else:
             id_player = 2
-        pezzo = self.scacchiera.get_pezzo(partenza)
         if self.colore == 'W' and player_in_play == 1:
-            print(f'Il giocatore {id_player} ha mosso un pezzo bianco')
+            print(f'Il giocatore {id_player} ha provato a muovere un pezzo bianco')
             return False
         if self.colore == 'B' and player_in_play == 0:
-            print(f'Il giocatore {id_player} ha mosso un pezzo nero')
+            print(f'Il giocatore {id_player} ha provato a muovere un pezzo nero')
             return False
         return True  # per ora la mossa è sempre legale
 
